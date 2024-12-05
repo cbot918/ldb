@@ -1,4 +1,6 @@
 import src.LDB;
+import redis.clients.jedis.Jedis;
+
 
 public class Main {
     public static void main(String[] args) throws Exception{
@@ -18,6 +20,11 @@ public class Main {
 
             System.out.println(id+" "+firstname+" "+lastname+" "+age+" ");
         }
+
+        
+        Jedis jedis = new Jedis("localhost", 6379);
+        jedis.auth("12345");
+        System.out.println("服務執行中: "+jedis.ping());
 
         // try{
             
